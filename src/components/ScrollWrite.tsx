@@ -17,26 +17,23 @@ export function ScrollWrite({
   const ref = useRef<HTMLSpanElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 92%', 'start 45%']
+    offset: ['start 92%', 'start 38%']
   });
-
-  const words = children.split(' ');
 
   return (
     <span ref={ref} className={`scroll-write ${className}`} aria-label={children}>
-      {words.map((word, index) => {
-        const total = Math.max(words.length - 1, 1);
-        const start = (index / total) * 0.85;
-        const end = Math.min(start + 0.15, 1);
+      {children.split('').map((character, index, characters) => {
+        const total = Math.max(characters.length - 1, 1);
+        const start = (index / total) * 0.82;
+        const end = Math.min(start + 0.18, 1);
         return (
-          <ScrollWord
-            key={`${word}-${index}`}
-            word={word}
+          <ScrollCharacter
+            key={`${character}-${index}`}
+            character={character}
             progress={scrollYProgress}
             range={[start, end]}
             from={from}
             to={to}
-            isLast={index === words.length - 1}
           />
         );
       })}
@@ -44,27 +41,25 @@ export function ScrollWrite({
   );
 }
 
-function ScrollWord({
-  word,
+function ScrollCharacter({
+  character,
   progress,
   range,
   from,
-  to,
-  isLast
+  to
 }: {
-  word: string;
+  character: string;
   progress: ReturnType<typeof useScroll>['scrollYProgress'];
   range: [number, number];
   from: string;
   to: string;
-  isLast: boolean;
 }) {
   const color = useTransform(progress, range, [from, to]);
   return (
-    <motion.span aria-hidden="true" style={{ color }} className="inline-block">
-      {word}
-      {!isLast && '\u00A0'}
+    <motion.span aria-hidden="true" style={{ color }}>
+      {character === ' ' ? '\u00A0' : character}
     </motion.span>
   );
 }
+
 
