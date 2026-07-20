@@ -39,7 +39,7 @@ export function About() {
         </div>
         <div className="education-list">
           {education.map((item, index) => (
-            <motion.article key={item.title} className="education-item" initial={{ opacity: 0, x: index % 2 === 0 ? 54 : -54 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: .35 }} transition={{ duration: .55, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.article key={item.title} className="education-item" initial={{ opacity: 0, x: index % 2 === 0 ? 54 : -54 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .55, ease: [0.22, 1, 0.36, 1] }}>
               <span>{item.period}</span><div><h4>{item.title}</h4><p className="education-place">{item.place}</p><p>{item.detail}</p></div>
             </motion.article>
           ))}

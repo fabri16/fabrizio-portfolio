@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 type ScrollWriteProps = {
@@ -41,7 +41,7 @@ export function ScrollWrite({
   );
 }
 
-function ScrollCharacter({
+const ScrollCharacter = React.memo(function ScrollCharacter({
   character,
   progress,
   range,
@@ -60,6 +60,6 @@ function ScrollCharacter({
       {character === ' ' ? '\u00A0' : character}
     </motion.span>
   );
-}
+});
 
 
