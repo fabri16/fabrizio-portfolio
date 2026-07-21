@@ -42,7 +42,20 @@ export function Projects() {
           <article key={project.id} className="project-card" style={{ '--project-accent': project.accent, '--project-secondary': project.secondary, '--stack-index': index } as React.CSSProperties}>
             <div className="project-visual">
               <span className="project-number">{project.index}</span><span className="project-category">{project.label}</span>
-              <div className="project-art" aria-hidden="true"><div className="project-window"><div className="window-bar"><i /><i /><i /></div><div className="window-grid"><span /><span /><span /><span /><span /><span /></div></div><div className="floating-panel panel-one" /><div className="floating-panel panel-two" /></div>
+              <div className="project-art" aria-hidden="true">
+                {project.image ? (
+                  <div className="project-window mockup-window">
+                    <div className="window-bar"><i /><i /><i /><span className="window-url">{project.title.toLowerCase().replace(/\s+/g, '')}.com</span></div>
+                    <img src={project.image} alt={project.title} className="mockup-img" />
+                  </div>
+                ) : (
+                  <div className="project-window">
+                    <div className="window-bar"><i /><i /><i /></div>
+                    <div className="window-grid"><span /><span /><span /><span /><span /><span /></div>
+                  </div>
+                )}
+                <div className="floating-panel panel-one" /><div className="floating-panel panel-two" />
+              </div>
               <button type="button" className="project-open" onClick={() => setSelected(project)}>Ver caso <ArrowUpRight size={20} /></button>
             </div>
             <div className="project-meta"><div><p>{project.discipline} · {project.year}</p><h3>{project.title}</h3></div><p>{project.description}</p></div>
@@ -57,16 +70,41 @@ export function Projects() {
               <button className="case-close" type="button" onClick={() => setSelected(null)} aria-label="Cerrar caso"><X size={22} /></button>
               <div className="case-hero">
                 <div><span>{selected.index} · {selected.label}</span><h2>{selected.title}</h2><p>{selected.description}</p></div>
-                <div className="case-cover"><div className="project-window large"><div className="window-bar"><i /><i /><i /></div><div className="window-grid"><span /><span /><span /><span /><span /><span /></div></div></div>
+                <div className="case-cover">
+                  {selected.image ? (
+                    <div className="project-window large mockup-window">
+                      <div className="window-bar"><i /><i /><i /><span className="window-url">{selected.title.toLowerCase().replace(/\s+/g, '')}.com</span></div>
+                      <img src={selected.image} alt={selected.title} className="mockup-img" />
+                    </div>
+                  ) : (
+                    <div className="project-window large">
+                      <div className="window-bar"><i /><i /><i /></div>
+                      <div className="window-grid"><span /><span /><span /><span /><span /><span /></div>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="case-details">
                 <div><small>Rol</small><strong>{selected.discipline}</strong></div><div><small>Año</small><strong>{selected.year}</strong></div><div><small>Enfoque</small><strong>Investigación · Estrategia · Diseño</strong></div>
               </div>
               <div className="case-story">
-                <section><span>01</span><h3>El desafío</h3><p>Comprender el contexto, ordenar la información y transformar una necesidad compleja en una experiencia fácil de entender y usar.</p></section>
-                <section><span>02</span><h3>El proceso</h3><p>Investigación, análisis competitivo, arquitectura de información, wireframes, iteraciones visuales y validación de los puntos críticos.</p></section>
-                <section><span>03</span><h3>La solución</h3><p>Un sistema coherente y escalable que prioriza claridad, jerarquía visual y acciones concretas para usuarios y objetivos de negocio.</p></section>
+                <section><span>01</span><h3>El desafío</h3><p>{selected.challenge || 'Comprender el contexto, ordenar la información y transformar una necesidad compleja en una experiencia fácil de entender y usar.'}</p></section>
+                <section><span>02</span><h3>El proceso</h3><p>{selected.process || 'Investigación, análisis competitivo, arquitectura de información, wireframes, iteraciones visuales y validación de los puntos críticos.'}</p></section>
+                <section><span>03</span><h3>La solución</h3><p>{selected.solution || 'Un sistema coherente y escalable que prioriza claridad, jerarquía visual y acciones concretas para usuarios y objetivos de negocio.'}</p></section>
               </div>
+              {selected.mockupImages && selected.mockupImages.length > 0 && (
+                <div className="case-gallery">
+                  <h3>Pantallas y Vistas del Proyecto</h3>
+                  <div className="gallery-grid">
+                    {selected.mockupImages.map((imgSrc, i) => (
+                      <div key={i} className="gallery-item">
+                        <div className="window-bar"><i /><i /><i /></div>
+                        <img src={imgSrc} alt={`Pantalla ${i + 1} de ${selected.title}`} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.article>
           </motion.div>
         )}
@@ -74,3 +112,4 @@ export function Projects() {
     </section>
   );
 }
+

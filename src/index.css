@@ -327,6 +327,18 @@ body { cursor: auto; }
 .case-story h3 { margin:28px 0 12px; font-size:1.45rem; }
 .case-story p { margin:0; color:rgba(13,18,32,.62); line-height:1.65; }
 
+.mockup-window { display: flex; flex-direction: column; }
+.window-url { font-size: 0.65rem; color: rgba(13,18,32,0.45); font-weight: 600; margin-left: 8px; font-family: monospace; }
+.mockup-img { width: 100%; height: calc(100% - 42px); object-fit: cover; object-position: top center; display: block; }
+
+.case-gallery { padding: 42px 54px 56px; border-top: 1px solid var(--line); }
+.case-gallery h3 { font-size: 1.5rem; letter-spacing: -.03em; margin: 0 0 24px; color: var(--ink); }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.gallery-item { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.gallery-item .window-bar { height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border-bottom: 1px solid rgba(13,18,32,.08); background: #f4f5f9; }
+.gallery-item .window-bar i { width: 7px; height: 7px; border-radius: 50%; background: rgba(13,18,32,.25); }
+.gallery-item img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top center; display: block; }
+
 .about-lead .scroll-write { display:inline; }
 .education-item { will-change:transform, opacity; }
 
