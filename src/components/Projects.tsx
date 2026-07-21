@@ -69,7 +69,21 @@ export function Projects() {
             <motion.article className="case-modal" role="dialog" aria-modal="true" aria-label={`Caso de estudio ${selected.title}`} initial={{ opacity: 0, y: 40, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 24, scale: .98 }} transition={{ duration: .32, ease: [0.22, 1, 0.36, 1] }} style={{ '--project-accent': selected.accent, '--project-secondary': selected.secondary } as React.CSSProperties}>
               <button className="case-close" type="button" onClick={() => setSelected(null)} aria-label="Cerrar caso"><X size={22} /></button>
               <div className="case-hero">
-                <div><span>{selected.index} · {selected.label}</span><h2>{selected.title}</h2><p>{selected.description}</p></div>
+                <div>
+                  <span>{selected.index} · {selected.label}</span>
+                  <h2>{selected.title}</h2>
+                  <p>{selected.description}</p>
+                  {selected.behanceUrl && (
+                    <a
+                      href={selected.behanceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="case-behance-btn"
+                    >
+                      Ver investigación completa en Behance <ArrowUpRight size={18} />
+                    </a>
+                  )}
+                </div>
                 <div className="case-cover">
                   {selected.image ? (
                     <div className="project-window large mockup-window">

@@ -312,6 +312,25 @@ body { cursor: auto; }
 .case-hero > div:first-child > span { color:var(--navy); font-size:.74rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
 .case-hero h2 { margin:14px 0 18px; font-size:clamp(3rem, 7vw, 7rem); line-height:.92; letter-spacing:-.055em; overflow-wrap:anywhere; }
 .case-hero p { margin:0; color:rgba(13,18,32,.65); line-height:1.7; }
+.case-behance-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #0057ff;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.84rem;
+  box-shadow: 0 10px 24px rgba(0, 87, 255, 0.25);
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.case-behance-btn:hover {
+  background: #0044cd;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 87, 255, 0.35);
+}
 .case-cover { min-height:420px; display:grid; place-items:center; overflow:hidden; border-radius:24px; background:radial-gradient(circle at 75% 18%, color-mix(in srgb, var(--project-accent) 72%, white), transparent 26%), linear-gradient(135deg, var(--project-secondary), var(--project-accent)); }
 .project-window.large { position:relative; width:76%; height:74%; left:auto; top:auto; transform:rotate(-3deg); }
 .case-details { display:grid; grid-template-columns:repeat(3,1fr); margin:0 54px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }

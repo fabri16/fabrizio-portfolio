@@ -16,6 +16,7 @@ export type Project = {
   secondary: string;
   label: string;
   image?: string;
+  behanceUrl?: string;
   gallery?: ProjectGalleryItem[];
   challenge?: string;
   process?: string;
@@ -105,22 +106,56 @@ export const projects: Project[] = [
       'Un sistema coherente y escalable que prioriza claridad, jerarquía visual y acciones concretas para usuarios y objetivos de negocio.'
   },
   {
-    id: 'reserva-canchas',
+    id: 'falta-1',
     index: '03',
-    title: 'Reserva de Canchas',
-    discipline: 'Product Design · UX/UI',
+    title: 'Falta 1',
+    discipline: 'Product Design · UX/UI · Coderhouse',
     year: '2026',
     description:
-      'Experiencia móvil para conectar jugadores con complejos deportivos mediante reservas rápidas, perfiles y partidos abiertos.',
+      'Aplicación móvil integral para conectar jugadores de fútbol amateur con complejos deportivos. Permite encontrar predios cercanos, reservar turnos en menos de 3 clics y armar partidos abiertos.',
     accent: '#39a96b',
     secondary: '#0b2f1f',
     label: 'SportsTech / App móvil',
+    image: 'falta1-1.jpg',
+    behanceUrl: 'https://www.behance.net/gallery/245627123/Falta-1-Proyecto-UxUi-Coderhouse',
     challenge:
-      'Simplificar el flujo de reserva de complejos deportivos reduciendo pasos a menos de 3 clics y habilitando partidos abiertos entre comunidades.',
+      'Las personas que juegan al fútbol amateur sufren constantes fricciones: llamadas telefónicas canceladas, falta de visibilidad en horarios disponibles de canchas y partidos cancelados a último momento cuando falta un jugador ("falta 1"). Por el lado de los administradores de predios, la gestión manual genera cancelaciones sin cobrar y franjas horarias ociosas.',
     process:
-      'Investigación con jugadores y administradores, prototipado de alta fidelidad, diseño del sistema de componentes y validación de usabilidad.',
+      'Investigación completa de UX Research en Coderhouse: entrevistas en profundidad a jugadores y dueños de complejos, encuestas a comunidades locales, mapas de empatía y benchmarking. Se definieron dos user personas (Jugador de fin de semana y Administrador de predio) y se prototipó un sistema de diseño dinámico con componentes modulares en Figma.',
     solution:
-      'Aplicación ágil y moderna con mapa interactivo, disponibilidad en tiempo real y confirmación instantánea de turnos.'
+      'Falta 1 resuelve el problema en dos frentes: para jugadores, un flujo de reserva ágil en 3 pasos con geolocalización y sistema de partidos abiertos para unirse cuando falta alguien; para dueños, un dashboard de gestión de reservas, calendario interactivo y control de señas en tiempo real.',
+    gallery: [
+      {
+        src: 'falta1-1.jpg',
+        title: '01. Ecosistema Móvil y Sistema de Pantallas',
+        category: 'Overview & Arquitectura',
+        description: 'Estructura modular responsiva diseñada para dos perfiles de usuario: el jugador móvil buscando cancha rápida y el administrador gestionando disponibilidad.'
+      },
+      {
+        src: 'falta1-2.jpg',
+        title: '02. Identidad y Bienvenida a Falta 1',
+        category: 'Onboarding & Marca',
+        description: 'Pantalla de splash y onboarding con identidad verde cancha de alto contraste que transmite dinamismo deportivo e ingresa directo a la acción.'
+      },
+      {
+        src: 'falta1-3.jpg',
+        title: '03. Búsqueda de Predios y Canchas Cercanas',
+        category: 'Home & Descubrimiento',
+        description: 'Buscador intuitivo con filtros por ubicación (ej. Córdoba norte), tipo de cancha (5vs5, sintético, pecheras) y precio por hora con badge de disponibilidad real.'
+      },
+      {
+        src: 'falta1-4.jpg',
+        title: '04. Reserva de Turnos en 3 Pasos',
+        category: 'Flujo de Reserva',
+        description: 'Selección limpia de días y franjas horarias disponibles con confirmación inmediata y pago de seña integrado para evitar ausencias.'
+      },
+      {
+        src: 'falta1-5.jpg',
+        title: '05. Dashboard de Gestión para Administradores',
+        category: 'Panel de Control',
+        description: 'Vista de calendario interactivo para dueños de predios con estadísticas diarias de reservas confirmadas, pendientes y métricas de ingresos.'
+      }
+    ]
   },
   {
     id: 'idea',
@@ -141,5 +176,6 @@ export const projects: Project[] = [
       'Un sistema de identidad modular y atemporal adaptado a publicaciones editoriales, señalética y plataformas web.'
   }
 ];
+
 
 
