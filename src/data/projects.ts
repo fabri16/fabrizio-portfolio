@@ -1,3 +1,10 @@
+export type ProjectGalleryItem = {
+  src: string;
+  title: string;
+  category: string;
+  description: string;
+};
+
 export type Project = {
   id: string;
   index: string;
@@ -9,7 +16,7 @@ export type Project = {
   secondary: string;
   label: string;
   image?: string;
-  mockupImages?: string[];
+  gallery?: ProjectGalleryItem[];
   challenge?: string;
   process?: string;
   solution?: string;
@@ -20,21 +27,64 @@ export const projects: Project[] = [
     id: 'pdg-industrial',
     index: '01',
     title: 'PDG Industrial',
-    discipline: 'UX/UI · UX Research · Web',
+    discipline: 'UX/UI · UX Research · Arquitectura de Información',
     year: '2026',
     description:
-      'Diseño y desarrollo de la plataforma web de soluciones eléctricas industriales. Estructura clara para tableros eléctricos, casos en producción y canal directo de cotización.',
+      'Diseño y desarrollo de la plataforma web corporativa para PDG Industrial. Una solución digital centrada en clarificar la oferta técnica de tableros eléctricos, comunicar solidez operativa y optimizar la generación de cotizaciones.',
     accent: '#e88325',
     secondary: '#121418',
     label: 'Industria / Producto digital',
     image: 'pdg-1.jpg',
-    mockupImages: ['pdg-1.jpg', 'pdg-2.jpg', 'pdg-3.jpg'],
     challenge:
-      'Explicar servicios técnicos complejos (tableros de bombeo de aguas negras, hospitalarios y potabilizadoras) de manera clara para ingenieros y decisores comerciales, jerarquizando datos de impacto.',
+      'PDG Industrial necesitaba transmitir 20 años de liderazgo técnico en fabricación de tableros eléctricos bajo normas IEC 61439 e ISO 9001. El desafío principal radicaba en organizar una amplia variedad de servicios técnicos e insumos para dos tipos de usuarios: ingenieros de planta (buscando especificaciones exactas) y gerentes comerciales (buscando tiempos de entrega y presupuestos ágiles).',
     process:
-      'Arquitectura de información técnica, UI en modo oscuro de alto contraste con acentos naranja industrial, telemetría en tiempo real y flujo directo a cotización.',
+      'Se realizó una investigación de usuarios con contratistas e ingenieros, definiendo una arquitectura visual en modo oscuro industrial con tipografías de alto impacto (estilo técnico) y acentos en naranja institucional. Se diseñó un sistema modular de tarjetas de proyectos, widgets de telemetría en tiempo real y una estructura clara de 3 pilares de servicios.',
     solution:
-      'Una plataforma robusta e intuitiva que destaca los +500 tableros entregados, 20 años de trayectoria y facilita solicitudes de presupuesto en 48hs.'
+      'Una plataforma integral que combina catálogo técnico de tableros, prueba social cuantificable (+500 tableros, 150+ clientes en 10 provincias) y un flujo directo de solicitud de presupuestos con respuesta garantizada en 48 horas.',
+    gallery: [
+      {
+        src: 'pdg-1.jpg',
+        title: '01. Pantalla Principal y Telemetría Técnica',
+        category: 'Hero & Propuesta de Valor',
+        description: 'Jerarquía tipográfica brutalista con datos de telemetría industrial activa (380V ONLINE, PLC S7-1500 RUN) para generar validación técnica inmediata desde el primer segundo.'
+      },
+      {
+        src: 'pdg-2.jpg',
+        title: '02. Institucional y Certificaciones Normativas',
+        category: 'Quiénes Somos & Confianza',
+        description: 'Sección de respaldo operativo que destaca el cumplimiento de normas internacionales (IEC 61439, ISO 9001) y soporte 24/7 en planta.'
+      },
+      {
+        src: 'pdg-3.jpg',
+        title: '03. Servicios Diseñados para Producción Continua',
+        category: 'Arquitectura de Servicios',
+        description: 'Organización tripartita de servicios: Tableros Eléctricos, Suministro de Materiales y Asesoramiento Técnico con desglose claro de componentes y normas.'
+      },
+      {
+        src: 'pdg-4.jpg',
+        title: '04. Casos que Prendieron la Industria Argentina',
+        category: 'Prueba Social y Métricas',
+        description: 'Módulo de impacto cuantitativo mostrando +500 tableros entregados, 150+ clientes activos y presencia en 10 provincias para infundir confianza comercial.'
+      },
+      {
+        src: 'pdg-5.jpg',
+        title: '05. Catálogo de Proyectos y Tableros Destacados',
+        category: 'Grilla de Casos Reales',
+        description: 'Filtro visual de proyectos clasificados por industria (Saneamiento, Salud, Agua Potable) con acceso directo a fichas técnicas de montaje.'
+      },
+      {
+        src: 'pdg-6.jpg',
+        title: '06. Detalle Técnico de Producto (Tablero de Bombeo)',
+        category: 'Ficha Técnica Modal',
+        description: 'Visor fotográfico detallado de tableros fabricados en taller (Tablero Bombeo Aguas Negras 2025) con descripción de bombas sumergibles, arranque automático y protecciones.'
+      },
+      {
+        src: 'pdg-7.jpg',
+        title: '07. Conversión y Solicitud Directa de Presupuesto',
+        category: 'Sección de Contacto',
+        description: 'Cierre enfocado en la conversión rápida mediante canal directo de WhatsApp y formulario de cotización técnica en 48 horas hábiles.'
+      }
+    ]
   },
   {
     id: 'tricount-research',
@@ -91,4 +141,5 @@ export const projects: Project[] = [
       'Un sistema de identidad modular y atemporal adaptado a publicaciones editoriales, señalética y plataformas web.'
   }
 ];
+
 
