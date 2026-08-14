@@ -107,7 +107,7 @@ export function Projects() {
                         href={selected.projectUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="case-live-btn"
+                        className={selected.behanceUrl ? "case-live-btn" : "case-behance-btn"}
                       >
                         Visitar sitio web <ArrowUpRight size={18} />
                       </a>
