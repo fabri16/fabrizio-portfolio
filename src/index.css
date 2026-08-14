@@ -601,13 +601,7 @@ body { cursor: auto; }
   .contact-card-wrap { max-width: 760px; justify-self: stretch; }
 }
 
-@media (max-width: 720px) {
-  .services-section .section-heading-no-label { text-align: left; }
-  .about-lead { font-size: clamp(1.25rem, 6.4vw, 2rem); line-height: 1.48; }
-  .academic-icons { justify-content: center; margin: 30px auto 12px; }
-  .academic-icon-secondary { margin-left: 54px !important; }
-  .contact-card-wrap { padding: 24px 18px; border-radius: 26px; }
-}
+
 
 /* Refinements v5 */
 .secondary-reveal {
@@ -1068,8 +1062,19 @@ body { cursor: auto; }
   .education-item > span { font-size: 0.68rem !important; padding-top: 0 !important; }
   .education-item h4 { font-size: 1.2rem !important; text-align: center !important; }
   .education-item p { font-size: 0.88rem !important; margin-top: 2px !important; text-align: center !important; }
-  .academic-icons { margin-left: 0 !important; justify-content: center !important; }
-  .academic-icon-secondary { margin-left: 0 !important; }
+  .academic-icons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+    margin: 30px auto 12px !important;
+    width: 100% !important;
+  }
+  .academic-icon-secondary {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
 
   /* Process section mobile (Centered) */
   .process-list { width: 100% !important; }

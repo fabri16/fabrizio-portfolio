@@ -49,22 +49,32 @@ export function Projects() {
             style={{ '--project-accent': project.accent, '--project-secondary': project.secondary, '--stack-index': index } as React.CSSProperties}
           >
             <div className="project-visual">
-              <span className="project-number">{project.index}</span><span className="project-category">{project.label}</span>
-              <div className="project-art" aria-hidden="true">
-                {project.image ? (
-                  <div className="project-window mockup-window">
-                    <div className="window-bar"><i /><i /><i /><span className="window-url">{project.title.toLowerCase().replace(/\s+/g, '')}.com</span></div>
-                    <img src={project.image} alt={project.title} className="mockup-img" />
-                  </div>
-                ) : (
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-cover-img"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    zIndex: 0
+                  }}
+                />
+              ) : (
+                <div className="project-art" aria-hidden="true" style={{ zIndex: 0 }}>
                   <div className="project-window">
                     <div className="window-bar"><i /><i /><i /></div>
                     <div className="window-grid"><span /><span /><span /><span /><span /><span /></div>
                   </div>
-                )}
-                <div className="floating-panel panel-one" /><div className="floating-panel panel-two" />
-              </div>
-              <button type="button" className="project-open" onClick={() => setSelected(project)}>Ver caso <ArrowUpRight size={20} /></button>
+                  <div className="floating-panel panel-one" /><div className="floating-panel panel-two" />
+                </div>
+              )}
+              <span className="project-number" style={{ zIndex: 1 }}>{project.index}</span>
+              <span className="project-category" style={{ zIndex: 1 }}>{project.label}</span>
+              <button type="button" className="project-open" onClick={() => setSelected(project)} style={{ zIndex: 1 }}>Ver caso <ArrowUpRight size={20} /></button>
             </div>
             <div className="project-meta"><div><p>{project.discipline} · {project.year}</p><h3>{project.title}</h3></div><p>{project.description}</p></div>
           </motion.article>
@@ -104,14 +114,19 @@ export function Projects() {
                     )}
                   </div>
                 </div>
-                <div className="case-cover">
+                <div className="case-cover" style={{ overflow: 'hidden', position: 'relative' }}>
                   {selected.image ? (
-                    <div className="project-window large mockup-window">
-                      <div className="window-bar"><i /><i /><i /><span className="window-url">{selected.title.toLowerCase().replace(/\s+/g, '')}.com</span></div>
-                      <img src={selected.image} alt={selected.title} className="mockup-img" />
-                    </div>
+                    <img
+                      src={selected.image}
+                      alt={selected.title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
                   ) : (
-                    <div className="project-window large">
+                    <div className="project-window large" style={{ transform: 'none' }}>
                       <div className="window-bar"><i /><i /><i /></div>
                       <div className="window-grid"><span /><span /><span /><span /><span /><span /></div>
                     </div>
