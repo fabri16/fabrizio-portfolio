@@ -11,7 +11,7 @@ const steps = [
 ];
 
 export function Process() {
-  const [active, setActive] = useState<string | null>('01');
+  const [active, setActive] = useState<string | null>(null);
   return (
     <section className="section process-section">
       <div className="section-heading section-heading-no-label">

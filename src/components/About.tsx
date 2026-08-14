@@ -6,8 +6,7 @@ const education = [
   { period: '2014 — 2020', title: 'Técnico Electrónico', place: 'Instituto Técnico Salesiano Villada', detail: 'Formación técnica en electrónica, sistemas, resolución de problemas y trabajo aplicado.' },
   { period: '2021 — 2024', title: 'Diseño Gráfico', place: 'Instituto Superior Mariano Moreno', detail: 'Formación profesional en comunicación visual, identidad, editorial, publicidad y diseño digital.' },
   { period: '2025 — 2026', title: 'UX/UI inicial y avanzado', place: 'Coderhouse', detail: 'Diseño de interfaces, arquitectura de información, prototipado, sistemas de diseño y validación.' },
-  { period: '2026', title: 'UX Research', place: 'Coderhouse', detail: 'Investigación cualitativa, definición de hipótesis, instrumentos, análisis de patrones y comunicación de hallazgos.' },
-  { period: '2026', title: 'UX Writing', place: 'Coderhouse', detail: 'Voz y tono, microcopy, diseño de contenido y escritura centrada en las personas.' }
+  { period: '2026', title: 'UX Research', place: 'Coderhouse', detail: 'Investigación cualitativa, definición de hipótesis, instrumentos, análisis de patrones y comunicación de hallazgos.' }
 ];
 
 export function About() {

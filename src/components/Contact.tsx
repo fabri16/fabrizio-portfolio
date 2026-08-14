@@ -9,7 +9,7 @@ export function Contact() {
     const form = new FormData(event.currentTarget);
     const subject = encodeURIComponent(`Consulta desde portfolio — ${String(form.get('nombre') || 'Nuevo contacto')}`);
     const body = encodeURIComponent(`Nombre: ${String(form.get('nombre') || '')}\nEmail: ${String(form.get('email') || '')}\n\nMensaje:\n${String(form.get('mensaje') || '')}`);
-    window.location.href = `mailto:tuemail@ejemplo.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:fabri.graziano16@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   }
   return (
@@ -23,7 +23,11 @@ export function Contact() {
           <ScrollWrite from="rgba(255,255,255,.18)" to="rgba(255,255,255,1)">recordar?</ScrollWrite>
         </h2>
         <p>Contame qué necesitás y en qué etapa está el proyecto. Podemos construir una solución clara, estratégica y con <strong>identidad</strong>.</p>
-        <div className="contact-links"><a href="mailto:tuemail@ejemplo.com"><Mail size={18} /> tuemail@ejemplo.com</a><a href="#">LinkedIn <ArrowUpRight size={17} /></a><a href="#">Behance <ArrowUpRight size={17} /></a></div>
+        <div className="contact-links">
+          <a href="mailto:fabri.graziano16@gmail.com"><Mail size={18} /> fabri.graziano16@gmail.com</a>
+          <a href="https://www.linkedin.com/in/fabrizio-graziano-cardozo-1191a1245" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={17} /></a>
+          <a href="https://www.behance.net/fabrigraziano" target="_blank" rel="noopener noreferrer">Behance <ArrowUpRight size={17} /></a>
+        </div>
       </div>
       <div className="contact-card-wrap">
         <div className="contact-card-heading"><MessageSquare size={22} /><div><span>Escribime</span></div></div>

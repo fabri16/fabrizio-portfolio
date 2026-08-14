@@ -106,27 +106,16 @@ export function Projects() {
                 <section><span>02</span><h3>El proceso</h3><p>{selected.process || 'Investigación, análisis competitivo, arquitectura de información, wireframes, iteraciones visuales y validación de los puntos críticos.'}</p></section>
                 <section><span>03</span><h3>La solución</h3><p>{selected.solution || 'Un sistema coherente y escalable que prioriza claridad, jerarquía visual y acciones concretas para usuarios y objetivos de negocio.'}</p></section>
               </div>
-              {selected.gallery && selected.gallery.length > 0 && (
-                <div className="case-gallery">
-                  <div className="gallery-header">
-                    <h3>Recorrido de Diseño & Estrategia Visual</h3>
-                    <p>Capturas originales de la plataforma web desarrollada, acompañadas del contexto de diseño y las decisiones de interfaz aplicadas en cada pantalla.</p>
-                  </div>
-                  <div className="gallery-list">
-                    {selected.gallery.map((item, i) => (
-                      <article key={i} className="gallery-card">
-                        <div className="gallery-card-visual">
-                          <div className="window-bar"><i /><i /><i /><span className="window-url">pdgindustrial.com</span></div>
-                          <img src={item.src} alt={item.title} />
-                        </div>
-                        <div className="gallery-card-info">
-                          <span className="gallery-card-tag">{item.category}</span>
-                          <h4>{item.title}</h4>
-                          <p>{item.description}</p>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
+              {selected.behanceUrl && (
+                <div className="case-footer-action">
+                  <a
+                    href={selected.behanceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="case-behance-bottom-btn"
+                  >
+                    Ver proyecto completo en Behance <ArrowUpRight size={20} />
+                  </a>
                 </div>
               )}
             </motion.article>

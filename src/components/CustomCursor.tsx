@@ -1,21 +1,32 @@
 import { useEffect, useRef } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(-100);
-  const y = useMotionValue(-100);
-  const springX = useSpring(x, { stiffness: 420, damping: 34, mass: 0.35 });
-  const springY = useSpring(y, { stiffness: 420, damping: 34, mass: 0.35 });
 
   useEffect(() => {
     if (!window.matchMedia('(pointer: fine)').matches) return;
-    const move = (event: MouseEvent) => {
-      x.set(event.clientX - 24);
-      y.set(event.clientY - 24);
-      const target = event.target as HTMLElement;
-      if (cursorRef.current) {
-        const isInteractive = Boolean(target.closest('a, button, input, select, textarea, .project-card'));
+
+    let requestId: number;
+    let mouseX = -100;
+    let mouseY = -100;
+    let currentX = -100;
+    let currentY = -100;
+
+    const onMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX - 24;
+      mouseY = e.clientY - 24;
+
+      const target = e.target as HTMLElement | null;
+      if (cursorRef.current && target) {
+        const tagName = target.tagName;
+        const isInteractive = 
+          tagName === 'A' || 
+          tagName === 'BUTTON' || 
+          tagName === 'INPUT' || 
+          tagName === 'SELECT' || 
+          tagName === 'TEXTAREA' ||
+          target.closest('.project-card, .project-open, .process-trigger');
+
         if (isInteractive) {
           cursorRef.current.classList.add('is-active');
         } else {
@@ -23,10 +34,25 @@ export function CustomCursor() {
         }
       }
     };
-    window.addEventListener('mousemove', move, { passive: true });
-    return () => window.removeEventListener('mousemove', move);
-  }, [x, y]);
 
-  return <motion.div ref={cursorRef} className="custom-cursor" style={{ x: springX, y: springY }} />;
+    const updatePosition = () => {
+      currentX += (mouseX - currentX) * 0.16;
+      currentY += (mouseY - currentY) * 0.16;
+
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      }
+      requestId = requestAnimationFrame(updatePosition);
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    requestId = requestAnimationFrame(updatePosition);
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      cancelAnimationFrame(requestId);
+    };
+  }, []);
+
+  return <div ref={cursorRef} className="custom-cursor" style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none', zIndex: 9999 }} />;
 }
-

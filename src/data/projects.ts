@@ -36,56 +36,13 @@ export const projects: Project[] = [
     secondary: '#121418',
     label: 'Industria / Producto digital',
     image: 'pdg-1.jpg',
+    behanceUrl: 'https://www.behance.net/gallery/245625419/PDG-Industrial-Redeseno-UXUI',
     challenge:
       'PDG Industrial necesitaba transmitir 20 años de liderazgo técnico en fabricación de tableros eléctricos bajo normas IEC 61439 e ISO 9001. El desafío principal radicaba en organizar una amplia variedad de servicios técnicos e insumos para dos tipos de usuarios: ingenieros de planta (buscando especificaciones exactas) y gerentes comerciales (buscando tiempos de entrega y presupuestos ágiles).',
     process:
       'Se realizó una investigación de usuarios con contratistas e ingenieros, definiendo una arquitectura visual en modo oscuro industrial con tipografías de alto impacto (estilo técnico) y acentos en naranja institucional. Se diseñó un sistema modular de tarjetas de proyectos, widgets de telemetría en tiempo real y una estructura clara de 3 pilares de servicios.',
     solution:
-      'Una plataforma integral que combina catálogo técnico de tableros, prueba social cuantificable (+500 tableros, 150+ clientes en 10 provincias) y un flujo directo de solicitud de presupuestos con respuesta garantizada en 48 horas.',
-    gallery: [
-      {
-        src: 'pdg-1.jpg',
-        title: '01. Pantalla Principal y Telemetría Técnica',
-        category: 'Hero & Propuesta de Valor',
-        description: 'Jerarquía tipográfica brutalista con datos de telemetría industrial activa (380V ONLINE, PLC S7-1500 RUN) para generar validación técnica inmediata desde el primer segundo.'
-      },
-      {
-        src: 'pdg-2.jpg',
-        title: '02. Institucional y Certificaciones Normativas',
-        category: 'Quiénes Somos & Confianza',
-        description: 'Sección de respaldo operativo que destaca el cumplimiento de normas internacionales (IEC 61439, ISO 9001) y soporte 24/7 en planta.'
-      },
-      {
-        src: 'pdg-3.jpg',
-        title: '03. Servicios Diseñados para Producción Continua',
-        category: 'Arquitectura de Servicios',
-        description: 'Organización tripartita de servicios: Tableros Eléctricos, Suministro de Materiales y Asesoramiento Técnico con desglose claro de componentes y normas.'
-      },
-      {
-        src: 'pdg-4.jpg',
-        title: '04. Casos que Prendieron la Industria Argentina',
-        category: 'Prueba Social y Métricas',
-        description: 'Módulo de impacto cuantitativo mostrando +500 tableros entregados, 150+ clientes activos y presencia en 10 provincias para infundir confianza comercial.'
-      },
-      {
-        src: 'pdg-5.jpg',
-        title: '05. Catálogo de Proyectos y Tableros Destacados',
-        category: 'Grilla de Casos Reales',
-        description: 'Filtro visual de proyectos clasificados por industria (Saneamiento, Salud, Agua Potable) con acceso directo a fichas técnicas de montaje.'
-      },
-      {
-        src: 'pdg-6.jpg',
-        title: '06. Detalle Técnico de Producto (Tablero de Bombeo)',
-        category: 'Ficha Técnica Modal',
-        description: 'Visor fotográfico detallado de tableros fabricados en taller (Tablero Bombeo Aguas Negras 2025) con descripción de bombas sumergibles, arranque automático y protecciones.'
-      },
-      {
-        src: 'pdg-7.jpg',
-        title: '07. Conversión y Solicitud Directa de Presupuesto',
-        category: 'Sección de Contacto',
-        description: 'Cierre enfocado en la conversión rápida mediante canal directo de WhatsApp y formulario de cotización técnica en 48 horas hábiles.'
-      }
-    ]
+      'Una plataforma integral que combina catálogo técnico de tableros, prueba social cuantificable (+500 tableros, 150+ clientes en 10 provincias) y un flujo directo de solicitud de presupuestos con respuesta garantizada en 48 horas.'
   },
   {
     id: 'tricount-research',
@@ -94,16 +51,17 @@ export const projects: Project[] = [
     discipline: 'UX Research',
     year: '2026',
     description:
-      'Investigación sobre reparto de gastos, transparencia de deudas y fricciones entre personas al dividir consumos compartidos.',
+      'Investigación sobre el reparto de gastos, fricciones interpersonales y la transparencia financiera al dividir deudas compartidas.',
     accent: '#5468ff',
     secondary: '#111a4d',
     label: 'Fintech / Investigación',
+    behanceUrl: 'https://www.behance.net/gallery/245626243/Tricount-UX-Research',
     challenge:
-      'Comprender el contexto, ordenar la información y transformar una necesidad compleja en una experiencia fácil de entender y usar.',
+      'Comprender el contexto, ordenar la información y detectar por qué las personas evitan hablar de dinero compartido, encontrando las fricciones de usabilidad al dividir deudas grupales.',
     process:
-      'Investigación, análisis competitivo, arquitectura de información, wireframes, iteraciones visuales y validación de los puntos críticos.',
+      'Realización de entrevistas cuantitativas y cualitativas en profundidad, mapas de empatía, benchmarking competitivo, definición de arquetipos y diseño de flujos ágiles de pago.',
     solution:
-      'Un sistema coherente y escalable que prioriza claridad, jerarquía visual y acciones concretas para usuarios y objetivos de negocio.'
+      'Insights accionables e hipótesis de diseño que resolvieron cómo automatizar recordatorios de pago informales y transparentar el saldo neto acumulado.'
   },
   {
     id: 'falta-1',
@@ -123,59 +81,26 @@ export const projects: Project[] = [
     process:
       'Investigación completa de UX Research en Coderhouse: entrevistas en profundidad a jugadores y dueños de complejos, encuestas a comunidades locales, mapas de empatía y benchmarking. Se definieron dos user personas (Jugador de fin de semana y Administrador de predio) y se prototipó un sistema de diseño dinámico con componentes modulares en Figma.',
     solution:
-      'Falta 1 resuelve el problema en dos frentes: para jugadores, un flujo de reserva ágil en 3 pasos con geolocalización y sistema de partidos abiertos para unirse cuando falta alguien; para dueños, un dashboard de gestión de reservas, calendario interactivo y control de señas en tiempo real.',
-    gallery: [
-      {
-        src: 'falta1-1.jpg',
-        title: '01. Ecosistema Móvil y Sistema de Pantallas',
-        category: 'Overview & Arquitectura',
-        description: 'Estructura modular responsiva diseñada para dos perfiles de usuario: el jugador móvil buscando cancha rápida y el administrador gestionando disponibilidad.'
-      },
-      {
-        src: 'falta1-2.jpg',
-        title: '02. Identidad y Bienvenida a Falta 1',
-        category: 'Onboarding & Marca',
-        description: 'Pantalla de splash y onboarding con identidad verde cancha de alto contraste que transmite dinamismo deportivo e ingresa directo a la acción.'
-      },
-      {
-        src: 'falta1-3.jpg',
-        title: '03. Búsqueda de Predios y Canchas Cercanas',
-        category: 'Home & Descubrimiento',
-        description: 'Buscador intuitivo con filtros por ubicación (ej. Córdoba norte), tipo de cancha (5vs5, sintético, pecheras) y precio por hora con badge de disponibilidad real.'
-      },
-      {
-        src: 'falta1-4.jpg',
-        title: '04. Reserva de Turnos en 3 Pasos',
-        category: 'Flujo de Reserva',
-        description: 'Selección limpia de días y franjas horarias disponibles con confirmación inmediata y pago de seña integrado para evitar ausencias.'
-      },
-      {
-        src: 'falta1-5.jpg',
-        title: '05. Dashboard de Gestión para Administradores',
-        category: 'Panel de Control',
-        description: 'Vista de calendario interactivo para dueños de predios con estadísticas diarias de reservas confirmadas, pendientes y métricas de ingresos.'
-      }
-    ]
+      'Falta 1 resuelve el problema en dos frentes: para jugadores, un flujo de reserva ágil en 3 pasos con geolocalización y sistema de partidos abiertos para unirse cuando falta alguien; para dueños, un dashboard de gestión de reservas, calendario interactivo y control de señas en tiempo real.'
   },
   {
-    id: 'idea',
+    id: 'te-veo-optica',
     index: '04',
-    title: 'IDEA',
-    discipline: 'Branding · Dirección de arte',
+    title: 'Te Veo Óptica',
+    discipline: 'Branding · E-commerce · Tiendanube',
     year: '2026',
     description:
-      'Identidad para un estudio que conecta branding e interiorismo mediante un sistema visual técnico, flexible y contemporáneo.',
+      'Creación integral de la identidad visual de la marca y desarrollo completo de su plataforma de e-commerce sobre Tiendanube, optimizando la experiencia de compra y el catálogo digital.',
     accent: '#243b6b',
     secondary: '#121b31',
-    label: 'Estudio creativo / Identidad',
+    label: 'E-commerce / Identidad',
+    image: 'teveo-cover.jpg',
+    behanceUrl: 'https://www.behance.net/gallery/245628105/Te-Veo-Optica-E-commerce',
     challenge:
-      'Crear una marca que comunique precisión arquitectónica y sensibilidad estética sin caer en clichés tradicionales.',
+      'Crear una experiencia de compra online ágil y de alta confianza para productos ópticos y lentes de sol, trasladando la profesionalidad y asesoramiento de una óptica física al entorno digital.',
     process:
-      'Estrategia de marca, universo cromático, grilla tipográfica técnica y diseño de aplicaciones impresas y digitales.',
+      'Diseño conceptual del logotipo e identidad visual, paleta tipográfica y cromática, estructuración de las categorías del catálogo y configuración personalizada de pasarelas de pago y logística en Tiendanube.',
     solution:
-      'Un sistema de identidad modular y atemporal adaptado a publicaciones editoriales, señalética y plataformas web.'
+      'Una plataforma de e-commerce moderna, fluida y con conversión optimizada, complementada por una identidad de marca coherente y de gran impacto visual.'
   }
 ];
-
-
-
