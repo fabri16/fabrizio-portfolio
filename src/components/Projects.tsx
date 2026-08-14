@@ -39,7 +39,15 @@ export function Projects() {
       </div>
       <div className="projects-stack">
         {projects.map((project, index) => (
-          <article key={project.id} className="project-card" style={{ '--project-accent': project.accent, '--project-secondary': project.secondary, '--stack-index': index } as React.CSSProperties}>
+          <motion.article
+            key={project.id}
+            className="project-card"
+            initial={{ opacity: 0.3, y: 32, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.2, margin: "-10% 0px -10% 0px" }}
+            transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+            style={{ '--project-accent': project.accent, '--project-secondary': project.secondary, '--stack-index': index } as React.CSSProperties}
+          >
             <div className="project-visual">
               <span className="project-number">{project.index}</span><span className="project-category">{project.label}</span>
               <div className="project-art" aria-hidden="true">
@@ -59,14 +67,14 @@ export function Projects() {
               <button type="button" className="project-open" onClick={() => setSelected(project)}>Ver caso <ArrowUpRight size={20} /></button>
             </div>
             <div className="project-meta"><div><p>{project.discipline} · {project.year}</p><h3>{project.title}</h3></div><p>{project.description}</p></div>
-          </article>
+          </motion.article>
         ))}
       </div>
 
       <AnimatePresence>
         {selected && (
           <motion.div className="case-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(e) => { if (e.target === e.currentTarget) setSelected(null); }}>
-            <motion.article className="case-modal" role="dialog" aria-modal="true" aria-label={`Caso de estudio ${selected.title}`} initial={{ opacity: 0, y: 40, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 24, scale: .98 }} transition={{ duration: .32, ease: [0.22, 1, 0.36, 1] }} style={{ '--project-accent': selected.accent, '--project-secondary': selected.secondary } as React.CSSProperties}>
+            <motion.article className="case-modal" data-lenis-prevent role="dialog" aria-modal="true" aria-label={`Caso de estudio ${selected.title}`} initial={{ opacity: 0, y: 40, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 24, scale: .98 }} transition={{ duration: .32, ease: [0.22, 1, 0.36, 1] }} style={{ '--project-accent': selected.accent, '--project-secondary': selected.secondary } as React.CSSProperties}>
               <button className="case-close" type="button" onClick={() => setSelected(null)} aria-label="Cerrar caso"><X size={22} /></button>
               <div className="case-hero">
                 <div>
@@ -106,18 +114,6 @@ export function Projects() {
                 <section><span>02</span><h3>El proceso</h3><p>{selected.process || 'Investigación, análisis competitivo, arquitectura de información, wireframes, iteraciones visuales y validación de los puntos críticos.'}</p></section>
                 <section><span>03</span><h3>La solución</h3><p>{selected.solution || 'Un sistema coherente y escalable que prioriza claridad, jerarquía visual y acciones concretas para usuarios y objetivos de negocio.'}</p></section>
               </div>
-              {selected.behanceUrl && (
-                <div className="case-footer-action">
-                  <a
-                    href={selected.behanceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="case-behance-bottom-btn"
-                  >
-                    Ver proyecto completo en Behance <ArrowUpRight size={20} />
-                  </a>
-                </div>
-              )}
             </motion.article>
           </motion.div>
         )}

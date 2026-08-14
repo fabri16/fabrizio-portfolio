@@ -150,8 +150,8 @@ body::before {
 .scroll-write > span { white-space: pre-wrap; }
 
 .projects-section { padding-bottom: 190px; contain: none; }
-.projects-stack { display: grid; gap: 84px; transform: translateZ(0); }
-.project-card { position: sticky; top: calc(100px + var(--stack-index) * 10px); min-height: 76vh; padding: 16px; border-radius: 34px; background: #fff; border: 1px solid rgba(13,18,32,.08); box-shadow: 0 10px 30px rgba(13,18,32,.04); contain: layout paint; transform: translate3d(0, 0, 0); backface-visibility: hidden; will-change: transform; }
+.projects-stack { display: grid; gap: 64px; transform: translateZ(0); }
+.project-card { position: relative; top: auto; min-height: auto; padding: 24px; border-radius: 34px; background: #fff; border: 1px solid rgba(13,18,32,.08); box-shadow: 0 10px 30px rgba(13,18,32,.04); contain: layout paint; transform: translate3d(0, 0, 0); backface-visibility: hidden; will-change: transform; }
 .project-visual { position: relative; min-height: 56vh; border-radius: 24px; overflow: hidden; color: white; background: radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.36), transparent 28%), linear-gradient(135deg, var(--project-secondary), var(--project-accent)); }
 .project-number { position: absolute; top: 24px; left: 26px; font-family: Anton, sans-serif; font-size: clamp(4rem, 8vw, 8rem); line-height: 1; opacity: .34; }
 .project-category { position: absolute; top: 28px; right: 28px; padding: 9px 13px; border: 1px solid rgba(255,255,255,.34); border-radius: 999px; background: rgba(255,255,255,.24); font-size: .7rem; font-weight: 700; }
@@ -398,7 +398,7 @@ body { cursor: auto; }
 .case-close { position:sticky; top:18px; float:right; z-index:5; display:grid; place-items:center; width:46px; height:46px; margin:18px 18px -64px 0; border:1px solid rgba(13,18,32,.12); border-radius:50%; background:#ffffff; cursor:pointer; }
 .case-hero { display:grid; grid-template-columns:.8fr 1.2fr; gap:38px; align-items:center; padding:76px 54px 42px; }
 .case-hero > div:first-child > span { color:var(--navy); font-size:.74rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
-.case-hero h2 { margin:14px 0 18px; font-size:clamp(3rem, 7vw, 7rem); line-height:.92; letter-spacing:-.055em; overflow-wrap:anywhere; }
+.case-hero h2 { margin:14px 0 18px; font-size:clamp(2rem, 4.2vw, 3.8rem); line-height:1.05; letter-spacing:-.045em; overflow-wrap:break-word; word-break:break-word; }
 .case-hero p { margin:0; color:rgba(13,18,32,.65); line-height:1.7; }
 .case-behance-btn {
   display: inline-flex;

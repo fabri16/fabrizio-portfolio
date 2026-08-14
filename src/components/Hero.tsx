@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useLenis } from 'lenis/react';
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -11,6 +12,17 @@ export function Hero() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const photoY = useTransform(scrollYProgress, [0, 1], [0, 34]);
   const photoScale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
+  const lenis = useLenis();
+
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    e.preventDefault();
+    if (lenis) {
+      lenis.scrollTo(target, { duration: 0.8 });
+    } else {
+      const el = document.querySelector(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section
@@ -42,8 +54,20 @@ export function Hero() {
         <motion.div className="hero-intro" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
           <p>Soy Fabrizio Graziano. Conecto <strong>investigación</strong>, estrategia y diseño visual para crear marcas y productos digitales con identidad.</p>
           <div className="hero-actions">
-            <a href="#proyectos" className="primary-button">Ver proyectos <ArrowDownRight size={18} /></a>
-            <a href="#contacto" className="secondary-button">Hablemos <ArrowUpRight size={18} /></a>
+            <a 
+              href="#proyectos" 
+              className="primary-button"
+              onClick={(e) => handleScrollTo(e, '#proyectos')}
+            >
+              Ver proyectos <ArrowDownRight size={18} />
+            </a>
+            <a 
+              href="#contacto" 
+              className="secondary-button"
+              onClick={(e) => handleScrollTo(e, '#contacto')}
+            >
+              Hablemos <ArrowUpRight size={18} />
+            </a>
           </div>
         </motion.div>
       </div>

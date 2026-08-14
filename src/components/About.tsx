@@ -20,7 +20,7 @@ export function About() {
         <div className="about-copy">
           <p>Me interesa entender qué necesitan las personas, detectar <strong>oportunidades</strong> y transformar esos hallazgos en experiencias simples, atractivas y medibles.</p>
           <p>Mi perfil reúne diseño, investigación y una base técnica que me permite abordar cada proyecto con una mirada <strong>integral</strong>.</p>
-          <div className="skill-list">{['Figma', 'FigJam', 'Illustrator', 'Photoshop', 'After Effects', 'HTML/CSS', 'Research', 'UX Writing'].map((skill) => <span key={skill}>{skill}</span>)}</div>
+          <div className="skill-list">{['Figma', 'FigJam', 'Illustrator', 'Photoshop', 'After Effects', 'HTML/CSS', 'Research'].map((skill) => <span key={skill}>{skill}</span>)}</div>
         </div>
       </div>
       <div className="education-block">
