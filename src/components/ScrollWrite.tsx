@@ -57,7 +57,7 @@ const ScrollCharacter = React.memo(function ScrollCharacter({
   const color = useTransform(progress, range, [from, to]);
   return (
     <motion.span aria-hidden="true" style={{ color }}>
-      {character === ' ' ? '\u00A0' : character}
+      {character === ' ' ? ' ' : character}
     </motion.span>
   );
 });
