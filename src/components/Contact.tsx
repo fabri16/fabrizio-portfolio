@@ -1,34 +1,9 @@
 import { ArrowUpRight, Mail, MessageSquare } from 'lucide-react';
-import { FormEvent, useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { ScrollWrite } from './ScrollWrite';
 
 export function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus('sending');
-    const form = event.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch('https://formspree.io/f/xyegpwdb', {
-        method: 'POST',
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      if (response.ok) {
-        setStatus('success');
-        form.reset();
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
-    }
-  }
+  const [state, handleSubmit] = useForm('xyegpwdb');
 
   return (
     <section id="contacto" className="contact-section">
@@ -49,20 +24,46 @@ export function Contact() {
       </div>
       <div className="contact-card-wrap">
         <div className="contact-card-heading"><MessageSquare size={22} /><div><span>Escribime</span></div></div>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <label>Nombre<input name="name" placeholder="¿Cómo te llamás?" required /></label>
-          <label>Email<input type="email" name="email" placeholder="tu@email.com" required /></label>
-          <label>Mensaje<textarea name="message" rows={6} placeholder="Contame sobre tu proyecto, idea o necesidad..." required /></label>
-          <button 
-            type="submit" 
-            className="contact-submit" 
-            disabled={status === 'sending'}
-          >
-            {status === 'sending' ? 'Enviando...' : 'Enviar mensaje'} <ArrowUpRight size={18} />
-          </button>
-          {status === 'success' && <p className="form-note" style={{ color: '#89a8ff', fontWeight: 600 }}>¡Gracias! Tu mensaje ha sido enviado con éxito.</p>}
-          {status === 'error' && <p className="form-note" style={{ color: '#ff8989', fontWeight: 600 }}>Hubo un error al enviar. Por favor, intentá de nuevo.</p>}
-        </form>
+        {state.succeeded ? (
+          <div style={{ textAlign: 'center', padding: '40px 12px' }}>
+            <p className="form-note" style={{ color: '#89a8ff', fontSize: '1.1rem', fontWeight: 600, margin: 0 }}>
+              ¡Gracias! Tu mensaje ha sido enviado con éxito.
+            </p>
+            <p style={{ fontSize: '0.9rem', opacity: 0.7, marginTop: '8px', color: '#ffffff' }}>
+              Me pondré en contacto contigo a la brevedad.
+            </p>
+          </div>
+        ) : (
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <label>
+              Nombre
+              <input name="name" placeholder="¿Cómo te llamás?" required />
+              <ValidationError prefix="Name" field="name" errors={state.errors} style={{ color: '#ff8989', fontSize: '0.75rem', marginTop: '4px', display: 'block' }} />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="tu@email.com" required />
+              <ValidationError prefix="Email" field="email" errors={state.errors} style={{ color: '#ff8989', fontSize: '0.75rem', marginTop: '4px', display: 'block' }} />
+            </label>
+            <label>
+              Mensaje
+              <textarea name="message" rows={6} placeholder="Contame sobre tu proyecto, idea o necesidad..." required />
+              <ValidationError prefix="Message" field="message" errors={state.errors} style={{ color: '#ff8989', fontSize: '0.75rem', marginTop: '4px', display: 'block' }} />
+            </label>
+            <button 
+              type="submit" 
+              className="contact-submit" 
+              disabled={state.submitting}
+            >
+              {state.submitting ? 'Enviando...' : 'Enviar mensaje'} <ArrowUpRight size={18} />
+            </button>
+            {state.errors && (
+              <p className="form-note" style={{ color: '#ff8989', fontWeight: 600 }}>
+                Hubo un error al enviar. Por favor, intentá de nuevo.
+              </p>
+            )}
+          </form>
+        )}
       </div>
     </section>
   );
