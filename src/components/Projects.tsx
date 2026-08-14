@@ -42,10 +42,10 @@ export function Projects() {
           <motion.article
             key={project.id}
             className="project-card"
-            initial={{ opacity: 0.3, y: 32, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.2, margin: "-10% 0px -10% 0px" }}
-            transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0.4 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.15, margin: "-8% 0px -8% 0px" }}
+            transition={{ duration: 0.38, ease: "linear" }}
             style={{ '--project-accent': project.accent, '--project-secondary': project.secondary, '--stack-index': index } as React.CSSProperties}
           >
             <div className="project-visual">
@@ -81,16 +81,28 @@ export function Projects() {
                   <span>{selected.index} · {selected.label}</span>
                   <h2>{selected.title}</h2>
                   <p>{selected.description}</p>
-                  {selected.behanceUrl && (
-                    <a
-                      href={selected.behanceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="case-behance-btn"
-                    >
-                      Ver investigación completa en Behance <ArrowUpRight size={18} />
-                    </a>
-                  )}
+                  <div className="case-actions">
+                    {selected.behanceUrl && (
+                      <a
+                        href={selected.behanceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="case-behance-btn"
+                      >
+                        Ver investigación completa en Behance <ArrowUpRight size={18} />
+                      </a>
+                    )}
+                    {selected.projectUrl && (
+                      <a
+                        href={selected.projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="case-live-btn"
+                      >
+                        Visitar sitio web <ArrowUpRight size={18} />
+                      </a>
+                    )}
+                  </div>
                 </div>
                 <div className="case-cover">
                   {selected.image ? (

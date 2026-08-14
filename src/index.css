@@ -336,7 +336,8 @@ body::before {
   .case-story section { padding: 18px; border-radius: 12px !important; }
   .case-story h3 { margin: 16px 0 8px; font-size: 1.25rem; }
   .case-story p { font-size: 0.88rem; line-height: 1.6; }
-  .case-behance-btn { width: 100%; justify-content: center; font-size: 0.8rem; padding: 10px 16px; margin-top: 16px; }
+  .case-actions { flex-direction: column; width: 100%; gap: 10px; margin-top: 18px; }
+  .case-behance-btn, .case-live-btn { width: 100%; justify-content: center; font-size: 0.82rem; padding: 12px 18px; }
   .custom-cursor { display: none; }
 }
 
@@ -400,11 +401,16 @@ body { cursor: auto; }
 .case-hero > div:first-child > span { color:var(--navy); font-size:.74rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
 .case-hero h2 { margin:14px 0 18px; font-size:clamp(2rem, 4.2vw, 3.8rem); line-height:1.05; letter-spacing:-.045em; overflow-wrap:break-word; word-break:break-word; }
 .case-hero p { margin:0; color:rgba(13,18,32,.65); line-height:1.7; }
+.case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
 .case-behance-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 22px;
   padding: 12px 20px;
   border-radius: 999px;
   background: #0057ff;
@@ -413,11 +419,31 @@ body { cursor: auto; }
   font-size: 0.84rem;
   box-shadow: 0 10px 24px rgba(0, 87, 255, 0.25);
   transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  text-decoration: none;
 }
 .case-behance-btn:hover {
   background: #0044cd;
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(0, 87, 255, 0.35);
+}
+.case-live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(13,18,32,.14);
+  font-weight: 700;
+  font-size: 0.84rem;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+.case-live-btn:hover {
+  background: rgba(13,18,32,.04);
+  border-color: rgba(13,18,32,.3);
+  transform: translateY(-2px);
 }
 .case-cover { min-height:420px; display:grid; place-items:center; overflow:hidden; border-radius:24px; background:radial-gradient(circle at 75% 18%, color-mix(in srgb, var(--project-accent) 72%, white), transparent 26%), linear-gradient(135deg, var(--project-secondary), var(--project-accent)); }
 .project-window.large { position:relative; width:76%; height:74%; left:auto; top:auto; transform:rotate(-3deg); }

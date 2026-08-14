@@ -17,6 +17,7 @@ export type Project = {
   label: string;
   image?: string;
   behanceUrl?: string;
+  projectUrl?: string;
   gallery?: ProjectGalleryItem[];
   challenge?: string;
   process?: string;
@@ -37,6 +38,7 @@ export const projects: Project[] = [
     label: 'Industria / Producto digital',
     image: 'pdg-1.jpg',
     behanceUrl: 'https://www.behance.net/gallery/245625419/PDG-Industrial-Redeseno-UXUI',
+    projectUrl: 'https://pdgindustrialvcp.com/',
     challenge:
       'PDG Industrial necesitaba transmitir 20 años de liderazgo técnico en fabricación de tableros eléctricos bajo normas IEC 61439 e ISO 9001. El desafío principal radicaba en organizar una amplia variedad de servicios técnicos e insumos para dos tipos de usuarios: ingenieros de planta (buscando especificaciones exactas) y gerentes comerciales (buscando tiempos de entrega y presupuestos ágiles).',
     process:
@@ -55,6 +57,7 @@ export const projects: Project[] = [
     accent: '#5468ff',
     secondary: '#111a4d',
     label: 'Fintech / Investigación',
+    image: 'tricount-cover.jpg',
     behanceUrl: 'https://www.behance.net/gallery/245626243/Tricount-UX-Research',
     challenge:
       'Comprender el contexto, ordenar la información y detectar por qué las personas evitan hablar de dinero compartido, encontrando las fricciones de usabilidad al dividir deudas grupales.',
@@ -96,6 +99,7 @@ export const projects: Project[] = [
     label: 'E-commerce / Identidad',
     image: 'teveo-cover.jpg',
     behanceUrl: 'https://www.behance.net/gallery/245628105/Te-Veo-Optica-E-commerce',
+    projectUrl: 'https://teveooptica.com/',
     challenge:
       'Crear una experiencia de compra online ágil y de alta confianza para productos ópticos y lentes de sol, trasladando la profesionalidad y asesoramiento de una óptica física al entorno digital.',
     process:
